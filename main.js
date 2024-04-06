@@ -1,6 +1,5 @@
 import Web3 from 'web3'; // Import the Web3 library for interacting with Ethereum
 import fetch from 'node-fetch'; // Import the fetch library for making HTTP requests
-import yesno from 'yesno'; // Import the yesno library for prompting user input
 
 const walletAddress = '0x...xxx'; // Set your wallet address (replace '0x...xxx' with your actual wallet address)
 const privateKey  = "0x000000000000000000000000000000"
@@ -120,13 +119,7 @@ async function main() {
     const transactionForSign = await buildTxForApproveTradeWithRouter(swapParams.fromTokenAddress);
     console.log('Transaction for approve: ', transactionForSign);
     
-    const ok = await yesno({
-        question: 'Do you want to send a transaction to approve trade with 1inch router?'
-    });
     
-    if (!ok) {
-        return false;
-    }
     
     const approveTxHash =  await signAndSendTransaction(transactionForSign);
     console.log('Approve tx hash: ', approveTxHash);
@@ -136,15 +129,7 @@ async function main() {
     console.log('Transaction for swap: ', swapTransaction);
     
     
-        // Prompt the user to confirm the transaction before signing and sending it
-    const ok2 =  await yesno({
-        question: 'Do you want to send a transaction to exchange with 1inch router?'
-    });
-    
-    // Confirm that all parameters are specified correctly before signing the transaction
-    if (!ok2) {
-        return false;
-    }
+   
     
     // Sign and send the swap transaction, and retrieve the transaction hash
     const swapTxHash = await signAndSendTransaction(swapTransaction);
