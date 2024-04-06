@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "web3": "^4.7.0",
+    "yesno": "^0.4.0"
+  }
+}
