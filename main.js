@@ -112,6 +112,18 @@ async function buildTxForSwap(swapParams) {
 
 ////////////////////////////////////////////////////////////////////////
 async function main() {
+    //
+/*
+        if amount =="max":
+               1 - get total tokens in your wallet
+               2 - remove gas fees + gas swap fee
+               3 - multiply the amount by fee 
+               4 - swap the result of amount 
+
+
+*/
+
+    //
     const allowance =  await checkAllowance(swapParams.fromTokenAddress, walletAddress);
     console.log('Allowance: ', allowance);
     
